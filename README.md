@@ -29,9 +29,4 @@ TranslationTabsDemo is a modular ASP.NET Core application designed using **Layer
    dotnet run
    ```
 
-## Acknowledgments
-- Built with ASP.NET Core and Entity Framework Core.
-
----
-For more details, feel free to explore the project files.
 
