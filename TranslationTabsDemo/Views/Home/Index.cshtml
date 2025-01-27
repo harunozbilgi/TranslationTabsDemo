@@ -1,0 +1,42 @@
+﻿@model List<LanguageDto>
+@{
+    ViewData["Title"] = "Language Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <a class="btn btn-primary mb-3" href="@Url.Action("Create", "Home")">Create New Language</a>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Language Name</th>
+                <th>
+                    Language Code
+                </th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var language in Model)
+            {
+                <tr>
+                    <td>@language.Name</td>
+                    <td>@language.Code</td>
+                    <td>
+                        
+                        <a href="@Url.Action("Edit", "Home", new { language.Id })" class="btn btn-sm btn-success">
+                            <i class="me-1" data-feather="edit"></i>
+                            Edit
+                        </a>
+                        <a href="@Url.Action("Delete", "Home", new { language.Id })" class="btn btn-sm btn-danger">
+                            <i class="me-1" data-feather="trash"></i>
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+@model TranslationTabsDemo.Data.Application.DTOs.UpdateBlogDto
+
+@{
+    ViewData["Title"] = "Edit Blog";
+    Layout = "_Layout";
+}
+<div class="row">
+    <div class="col-6 mx-auto">
+        <div class="card mb-3">
+            <div class="card-header d-flex justify-content-between">
+                <h4 class="card-header-title">Edit Blog</h4>
+                <a class="btn btn-sm btn-light text-primary"
+                   asp-controller="Blog" asp-action="Index">
+                    Back Blog List
+                </a>
+            </div>
+            <div class="card-body">
+                <form asp-action="Edit" asp-antiforgery="true">
+                    <input type="hidden" asp-for="Id"/>
+                    <div class="mb-3">
+                        <label asp-for="PublishedDate" class="form-label">Published Date</label>
+                        <input class="form-control" asp-for="PublishedDate" required>
+                    </div>
+                    <translation-tabs
+                        tab-id="blog-card"
+                        name-prefix="Translations"
+                        values="@Model.Translations">
+                    </translation-tabs>
+                    <button class="btn btn-dark" type="submit">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

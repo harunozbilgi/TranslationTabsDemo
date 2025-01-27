@@ -1,0 +1,43 @@
+@model List<BlogDto>
+
+@{
+    ViewData["Title"] = "Blogs Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Blog List</h1>
+    <a class="btn btn-primary mb-3" href="@Url.Action("Create", "Blog")">Create New Language</a>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>
+                    PublishedDate
+                </th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var blog in Model)
+            {
+                <tr>
+                    <td>@blog.Title</td>
+                    <td>@blog.PublishedDate</td>
+                    <td>
+
+                        <a href="@Url.Action("Edit", "Blog", new { blog.Id })" class="btn btn-sm btn-success">
+                            <i class="me-1" data-feather="edit"></i>
+                            Edit
+                        </a>
+                        <a href="@Url.Action("Delete", "Blog", new { blog.Id })" class="btn btn-sm btn-danger">
+                            <i class="me-1" data-feather="trash"></i>
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

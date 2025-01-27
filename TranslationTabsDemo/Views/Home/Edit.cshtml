@@ -1,0 +1,41 @@
+@model UpdateLanguageDto
+
+@{
+    ViewBag.Title = "Edit Language";
+    Layout = "_Layout";
+}
+
+<div class="row">
+    <div class="col-6 mx-auto">
+        <div class="card mb-3">
+            <div class="card-header d-flex justify-content-between">
+                <h4 class="card-header-title">Edit Language</h4>
+                <a class="btn btn-sm btn-light text-primary"
+                   asp-controller="Home" asp-action="Index">
+                    Back Language List
+                </a>
+            </div>
+            <div class="card-body">
+                <form asp-action="Edit" asp-antiforgery="true">
+                    <input type="hidden" asp-for="Id"/>
+                    <div class="mb-3">
+                        <label asp-for="Code" class="form-label">Code</label>
+                        <input class="form-control" type="text" asp-for="Code" required>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label">Name</label>
+                        <input class="form-control" type="text" asp-for="Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="IsDefault" class="form-label">Default Language</label>
+                        <input class="form-check"  asp-for="IsDefault">
+                    </div>
+                    <button class="btn btn-dark" type="submit">
+                        Save Changes
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
